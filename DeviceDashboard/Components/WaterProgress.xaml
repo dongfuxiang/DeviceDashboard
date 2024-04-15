@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="DeviceDashboard.Components.WaterProgress"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DeviceDashboard.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="200">
+
+    <!--触发破浪移动-->
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UserControl.Loaded">
+            <BeginStoryboard>
+                <Storyboard >
+                    <DoubleAnimation Duration="0:0:1" From="0" To="-166" Storyboard.TargetName="tt1" Storyboard.TargetProperty="X" RepeatBehavior="Forever"/>
+                    <DoubleAnimation Duration="0:0:2" From="0" To="-166" Storyboard.TargetName="tt2" Storyboard.TargetProperty="X" RepeatBehavior="Forever"/>
+                    <DoubleAnimation Duration="0:0:3" From="0" To="-166" Storyboard.TargetName="tt3" Storyboard.TargetProperty="X" RepeatBehavior="Forever"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <!--拉伸ViewBox的时候同步放大内部图形内容的能力。-->
+    <Viewbox>
+        <Grid>
+
+            <Border  Width="166" Height="166" CornerRadius="90">
+                <!--Clip这个属性就会对元素进行裁剪,这个属性是一个 Geometry 属性，设置的值表示裁剪之后剩下的部分-->
+                <Border.Clip>
+                    <!--裁切掉这个圆以外的区域-->
+                    <EllipseGeometry Center="83,83" RadiusX="83" RadiusY="83"/>
+                </Border.Clip>
+                <!--画波浪-->
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <!--使波浪上下移动-->
+                        <TranslateTransform  x:Name="tth"/>
+                    </Canvas.RenderTransform>
+                    <!--路径标记语法-->
+                    <Path Data="M0 10A80 80 0 0 1 83 10A80 80 0 0 0 166 10A80 80 0 0 1 249 10A80 80 0 0 0 332 10L332 182 0 182Z"
+Fill="#4C0b3d90" >
+                        <Path.RenderTransform>
+                            <!--TranslateTransform移动-->
+                            <TranslateTransform X="-30" x:Name="tt1"/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path Data="M0 5A80 40 0 0 1 83 5A80 40 0 0 0 166 5A80 40 0 0 1 249 5A80 40 0 0 0 332 10L332 182 0 182Z"
+Fill="#7F0B3D90" >
+                        <Path.RenderTransform>
+                            <!--TranslateTransform移动-->
+                            <TranslateTransform X="-50"  x:Name="tt2"/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path Data="M0 15A80 120 0 0 1 83 15A80 120 0 0 0 166 15A80 120 0 0 1 249 15A80 120 0 0 0 332 15L332 182 0 182Z"
+Fill="#0B3D90" >
+                        <Path.RenderTransform>
+                            <!--TranslateTransform移动-->
+                            <TranslateTransform X="-150"  x:Name="tt3"/>
+                        </Path.RenderTransform>
+                    </Path>
+                </Canvas>
+            </Border>
+            <!--背景-->
+            <Border Width="176" Height="176" CornerRadius="90" BorderThickness="5" BorderBrush="#1FDCF5">
+                
+                <Border.Background>
+                    <RadialGradientBrush >
+                        <GradientStop Color="#44FFFFFF" Offset="1"/>
+                        <GradientStop Color="#22FFFFFF" Offset="0.5"/>
+                        <GradientStop Color="Transparent" Offset="0"/>
+                    </RadialGradientBrush>
+                </Border.Background>
+              
+
+
+            </Border>
+        </Grid>
+    </Viewbox>
+
+</UserControl>

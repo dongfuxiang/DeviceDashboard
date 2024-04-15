@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="DeviceDashboard.Components.DeviceBackground"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DeviceDashboard.Components"
+             mc:Ignorable="d" 
+             Height="250" Width="350">
+    <Grid>
+        <Path Data="M0 0 50 0C70 0 70 0 75 20L100 125 75 230C70 250 70 250 50 250L0 250" Stretch="Fill" Width="100" HorizontalAlignment="Left" Margin="0,10">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#2F4C75" Offset="1.5"/>
+                    <GradientStop Color="#051F3B" Offset="0"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.Stroke>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#90BEE4" Offset="1.5"/>
+                    <GradientStop Color="Transparent" Offset="0"/>
+                </LinearGradientBrush>
+            </Path.Stroke>
+        </Path>
+
+        <Path Data="M0 0 50 0C70 0 70 0 75 20L100 125 75 230C70 250 70 250 50 250L0 250" Stretch="Fill" Width="100" HorizontalAlignment="Right" Margin="0,10">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#2F4C75" Offset="1.5"/>
+                    <GradientStop Color="#051F3B" Offset="0"/>
+                    <!--<GradientStop Color="#2F4C75" Offset="-1.5"/>-->
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.Stroke>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#90BEE4" Offset="1.5"/>
+                    <GradientStop Color="Transparent" Offset="-0.5"/>
+                </LinearGradientBrush>
+            </Path.Stroke>
+
+            <Path.RenderTransform>
+                <RotateTransform Angle="180" CenterX="50" CenterY="115"/>
+            </Path.RenderTransform>
+        </Path>
+
+        <Border Width="250" Height="250" CornerRadius="125" BorderBrush="#3FFF" BorderThickness="2">
+            <Border.Background>
+                <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5">
+                    <GradientStop Color="#FF0F4D86" Offset="-0.5"/>
+                    <GradientStop Color="#072648" Offset="0.9"/>
+                </RadialGradientBrush>
+            </Border.Background>
+            <!--画刻度-->
+            <Canvas x:Name="canvas"/>
+        </Border>
+        <!--在UserControl中找到Source-->
+        <Image VerticalAlignment="Center" HorizontalAlignment="Center" Margin="40" Source="{Binding Source,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"/>
+    </Grid>
+</UserControl>

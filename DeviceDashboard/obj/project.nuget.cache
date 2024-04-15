@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "2z5QpUuwjOj8tqrjxBiJ6a/njxQCiL6riPExTB44U+hqe+o/l/xyazj3hKboQpPxY5tudeVrlM2Nf+VP82Fjgg==",
+  "success": true,
+  "projectFilePath": "E:\\Project\\DeviceDashboard\\DeviceDashboard\\DeviceDashboard\\DeviceDashboard.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\14269\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.2\\communitytoolkit.mvvm.8.2.2.nupkg.sha512",
+    "C:\\Users\\14269\\.nuget\\packages\\livecharts.wpf.netcore3\\0.9.8\\livecharts.wpf.netcore3.0.9.8.nupkg.sha512",
+    "C:\\Users\\14269\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
